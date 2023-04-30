@@ -32,5 +32,8 @@ class MarkingMenu():
         cmds.menuItem( parent = menu, label = "G",radialPosition = "NE")
         cmds.menuItem( parent = menu, label = "H",  radialPosition = "N")
 
+    def test(self):
+        print("test")
+
 reload(MarkingMenu)
 test = MarkingMenu()
