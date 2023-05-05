@@ -2,11 +2,13 @@ import maya.cmds as cmds
 from importlib import reload
 
 class MarkingMenu():
-    
+
     NAME = 'YSTOOL'
+    
     def __init__(self):
         self._remove_old()
         self.launch_menu()
+
 
     def launch_menu(self):
 
@@ -18,8 +20,9 @@ class MarkingMenu():
                              button = 1,
                              parent = "viewPanes",
                              postMenuCommandOnce = True,
-                             postMenuCommand = self.menuItems
+                             postMenuCommand = self.menuItems,
                              )
+
 
     def _remove_old(self):
         """
@@ -29,6 +32,7 @@ class MarkingMenu():
         """
         if cmds.popupMenu(MarkingMenu.NAME, exists=1):
             cmds.deleteUI(MarkingMenu.NAME)
+    
     
     def menuItems(self, dag, parent):
         cmds.menuItem( parent = dag, label = "A", radialPosition = "NW", command = self.test)
@@ -40,7 +44,6 @@ class MarkingMenu():
         cmds.menuItem( parent = dag, label = "G", radialPosition = "NE")
         cmds.menuItem( parent = dag, label = "H", radialPosition = "N")
 
+
     def test(self):
         print("test")
-
-MarkingMenu()
