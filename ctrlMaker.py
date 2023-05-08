@@ -19,8 +19,6 @@ selectedItem = cmds.ls(selection = True)[0]
 translateVal = cmds.xform(selectedItem, q = True, t = True, ws=True)
 rotateVal = cmds.xform(selectedItem, q = True, ro = True)
 
-print(translateVal)
-print(rotateVal)
 # upack the items to distribute translate X,Y,Z
 tX,tY,tZ = translateVal
 rX,rY,rZ = rotateVal
@@ -52,13 +50,3 @@ cmds.setAttr(grp + ".rotateY", rY)
 cmds.setAttr(grp + ".rotateZ", rZ)
 
 # making UI at the end
-
-
-# get the curveShape that we want
-curveData = []
-vertexes = cmds.ls(sl = True, fl = True)
-for vertex in vertexes:
-    position = cmds.xform(vertex, q = True, translation = True)
-    curveData.append(position)
-
-print(curveData)

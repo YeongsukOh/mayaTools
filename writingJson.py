@@ -1,33 +1,19 @@
 import json
 
-curve_dict = {
-    "diamondStick" : [[0.0, 0.0, 0.0], 
-                      [0.0, 0.0, 5.0], 
-                      [0.0, 1.0, 6.0], 
-                      [0.0, 0.0, 7.0], 
-                      [0.0, -1.0, 6.0], 
-                      [0.0, 0.0, 5.0], 
-                      [1.0, 0.0, 6.0], 
-                      [0.0, 0.0, 7.0], 
-                      [-1.0, 0.0, 6.0], 
-                      [0.0, 0.0, 5.0], 
-                      [-1.0, 0.0, 6.0], 
-                      [0.0, 1.0, 6.0], 
-                      [1.0, 0.0, 6.0], 
-                      [0.0, -1.0, 6.0], 
-                      [-1.0, 0.0, 6.0]],
-    "crossHeadStick" : [[0.0, 0.0, 0.0], 
-                        [0.0, 0.0, 5.0], 
-                        [-1.0, 0.0, 6.0], 
-                        [0.0, 0.0, 7.0], 
-                        [1.0, 0.0, 6.0], 
-                        [0.0, 0.0, 5.0], 
-                        [0.0, 0.0, 7.0], 
-                        [1.0, 0.0, 6.0], 
-                        [-1.0, 0.0, 6.0]],
-}
+
+# get the curveShape that we want
+curveData = []
+vertexes = cmds.ls(sl = True, fl = True)
+for vertex in vertexes:
+    position = cmds.xform(vertex, q = True, translation = True)
+    curveData.append(position)
+
+print(curveData)
+
 
 filePath = "C:\\Users\\Yourim Kim\\Documents\\maya\\2022\\scripts\\mayaTools\\curveShapeData.json"
 
 with open(filePath, "w") as json_file:
-    json.dump(curve_dict, json_file, sort_keys = True, indent=4)
+    json.dump(curveData, json_file, sort_keys = True, indent=4)
+
+
