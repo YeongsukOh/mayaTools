@@ -1,6 +1,5 @@
 import json
 
-
 # get the curveShape that we want
 curveData = []
 vertexes = cmds.ls(sl = True, fl = True)

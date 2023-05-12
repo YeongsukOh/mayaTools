@@ -17,7 +17,7 @@ def customColor(color):
 def colorChangerUI():
     if cmds.window("ColorCode",exists=1):
         cmds.deleteUI("ColorCode")
-
+    else:
         cmds.window("ColorCode",tlb=1,t="Custom Color Tool",s=0)
         cmds.gridLayout(cw=30,nc=6,nr=2)
         
